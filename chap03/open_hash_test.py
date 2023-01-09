@@ -1,24 +1,23 @@
 from enum import Enum
-from chained_hash import ChainedHash
+from open_hash import OpenHash
 
 Menu = Enum('Menu', ['Add', 'Remove', 'Search', 'Dump', 'Exit'])
 
 
 def select_menu() -> Menu:
-    s = [f'[{m.value}] : {m.name}' for m in Menu]
+    s = [f'([{m.value}]){m.name}' for m in Menu]
     while True:
-        print(*s, sep="  ", end='')
+        print(*s, sep='  ', end="")
         n = int(input(': '))
         if 1 <= n <= len(Menu):
             return Menu(n)
 
 
-hash = ChainedHash(5)  # 크기가 13인 hash table 생성
+hash = OpenHash(13)
 
 while True:
-    menu = select_menu()  # 메뉴 선택
+    menu = select_menu()
 
-    # 추가하기
     if menu == Menu.Add:
         key = int(input('enter a key: '))
         val = input('enter a value: ')
