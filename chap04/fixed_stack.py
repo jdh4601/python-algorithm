@@ -30,7 +30,6 @@ class FixedStack:
         """스택은 가득 찼는가?"""
         return self.ptr >= self.capacity
 
-# Do it! 실습 4-1 [B]
     def push(self, value: Any) -> None:
         """스택에 value를 푸시"""
         if self.is_full():              # 스택이 가득 참
@@ -55,7 +54,6 @@ class FixedStack:
         """스택을 비움(모든 데이터를 삭제)"""
         self.ptr = 0
 
-# Do it! 실습 4-1 [C]
     def find(self, value: Any) -> Any:
         """스택에서 value를 찾아 첨자(없으면 -1)를 반환"""
         for i in range(self.ptr - 1, -1, -1):  # 꼭대기 쪽부터 선형 검색
